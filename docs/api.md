@@ -10,3 +10,4 @@
 | GET | `/api/shopfloor/dashboard` | 模型评测工作台 |
 | POST | `/api/shopfloor/work-orders/{id}/reports` | 提交模型评测结果 |
 | POST | `/api/shopfloor/ai-preview` | 调用可替换 AI Provider 生成评测摘要 |
+| POST | `/api/shopfloor/release-gate` | 汇总质量、安全、时延、成本和人工审批门禁 |

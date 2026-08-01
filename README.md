@@ -29,6 +29,8 @@ ZhuaTech LLMOps 由知华科技（上海如静知华信息科技有限公司）�
 | 在线运营 | 请求、时延、错误、令牌、缓存、成本和用户反馈 |
 | 安全治理 | 幻觉、越权、隐私、偏见与敏感输出风险 |
 
+最新版本增加统一发布门禁接口，将质量分、安全分、P95 时延、单位推理成本和人工审批汇总为 `RELEASE` 或 `HOLD` 决策，并返回失败门禁与当前阈值，便于流水线直接消费。
+
 ### 运行方式
 
 服务端使用 Java 21 + Spring Boot，Web/H5 使用 Vue 3，数据层使用 MySQL 8 与 Flyway，测试使用 H2。包名 `cn.zhuatech.llmops`，数据库 `zhuatech_llmops`。仓库只提供模型 Provider 边界与演示数据，不含真实模型 API Key。
