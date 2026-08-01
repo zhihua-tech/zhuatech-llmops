@@ -1,0 +1,8 @@
+/* Copyright 2026 上海如静知华信息科技有限公司 */
+package cn.zhuatech.llmops;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+@SpringBootApplication
+public class ZhuaTechLlmOpsApplication {
+    public static void main(String[] args) { SpringApplication.run(ZhuaTechLlmOpsApplication.class, args); }
+}
