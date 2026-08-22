@@ -1,4 +1,4 @@
-/* Copyright 2026 上海如静知华信息科技有限公司 */
+/* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 package cn.zhuatech.llmops.service;
 import cn.zhuatech.llmops.common.BusinessException; import cn.zhuatech.llmops.dto.LlmOpsDto.*; import cn.zhuatech.llmops.model.*; import cn.zhuatech.llmops.repository.*; import org.springframework.stereotype.Service; import org.springframework.transaction.annotation.Transactional; import java.util.*;
 @Service @Transactional(readOnly=true) public class LlmOpsService {

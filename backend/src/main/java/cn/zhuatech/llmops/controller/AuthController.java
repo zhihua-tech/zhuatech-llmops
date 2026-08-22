@@ -1,4 +1,4 @@
-/* Copyright 2026 上海如静知华信息科技有限公司 */
+/* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 package cn.zhuatech.llmops.controller;
 import cn.zhuatech.llmops.common.ApiResponse; import cn.zhuatech.llmops.dto.AuthDto.*; import cn.zhuatech.llmops.repository.UserRepository; import cn.zhuatech.llmops.security.JwtService; import cn.zhuatech.llmops.service.CurrentUserService; import jakarta.validation.Valid; import org.springframework.security.authentication.*; import org.springframework.web.bind.annotation.*;
 @RestController @RequestMapping("/api/auth") public class AuthController {
