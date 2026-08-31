@@ -58,3 +58,7 @@ SEO 关键词：LLMOps 开源、模型评测平台、大模型治理、模型网
 ## 模型调用成本预测
 
 新增 `POST /api/llmops/insights/model-cost-forecast`，根据月请求量、输入输出 Token、缓存命中率、模型单价和月度预算预测成本，并输出 `WITHIN_BUDGET / WARNING / OVER_BUDGET`。结果包含预算使用率及缓存、输出长度、模型路由等优化动作，方便上线前完成 FinOps 评审。
+
+## 企业级大模型上线治理
+
+新增 `POST /api/enterprise/llmops/model-deployment`，覆盖评测、红队、隐私、版本、安全问题、责任、回滚、兜底和预算，返回 `DEPLOY / CANARY / BLOCKED`。详见 [模型上线说明](docs/ENTERPRISE_MODEL_DEPLOYMENT.md)。
