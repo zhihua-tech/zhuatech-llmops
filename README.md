@@ -62,3 +62,7 @@ SEO 关键词：LLMOps 开源、模型评测平台、大模型治理、模型网
 ## 企业级大模型上线治理
 
 新增 `POST /api/enterprise/llmops/model-deployment`，覆盖评测、红队、隐私、版本、安全问题、责任、回滚、兜底和预算，返回 `DEPLOY / CANARY / BLOCKED`。详见 [模型上线说明](docs/ENTERPRISE_MODEL_DEPLOYMENT.md)。
+
+## 灰度发布与稳定分流
+
+`POST /api/enterprise/llmops/canary-release` 根据候选版本的样本量、错误率、P95 时延、安全事件以及回滚和兜底准备情况执行灰度门禁；通过后按租户、用户和发布版本生成稳定分桶，返回基线或候选模型版本。安全或 SLO 超标时返回 `ROLLBACK` 并建议路由到基线，样本不足返回 `HOLD`。接口是确定性的发布与路由决策，不会自行调用模型或修改生产流量配置，接入方应执行返回的决策。
