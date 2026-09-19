@@ -1,7 +1,13 @@
 /* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 package cn.zhuatech.llmops.config;
 import cn.zhuatech.llmops.model.*; import cn.zhuatech.llmops.repository.*; import org.springframework.boot.CommandLineRunner; import org.springframework.context.annotation.*; import org.springframework.security.crypto.password.PasswordEncoder; import java.time.LocalDate; import java.util.List;
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Configuration public class DataInitializer {
+ /**
+  * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+  */
  @Bean CommandLineRunner seed(OperatingUnitRepository units,WorkRecordRepository records,ResourceRegisterRepository resources,ReviewRecordRepository reviews,UserRepository users,PasswordEncoder encoder){return args->{if(units.count()>0)return;
   OperatingUnit knowledge=units.save(new OperatingUnit("LLM-KB","知识智能空间","数字化中心",200)),service=units.save(new OperatingUnit("LLM-CS","客户服务空间","客户服务部",160)),marketing=units.save(new OperatingUnit("LLM-MKT","营销智能空间","品牌市场部",120));
   WorkRecord a=records.save(new WorkRecord("REL-260801-028","APP-KNOWLEDGE-RAG","企业知识助手模型升级",knowledge,120,108,3,LocalDate.now().plusDays(1),WorkRecord.Status.RUNNING,"PROMPT-V12")); WorkRecord b=records.save(new WorkRecord("REL-260801-021","APP-AICC-SUMMARY","客服摘要模型提示升级",service,86,86,0,LocalDate.now(),WorkRecord.Status.COMPLETED,"PROMPT-V8")); WorkRecord c=records.save(new WorkRecord("REL-260731-096","APP-MKT-COPY","营销文案模型安全回归",marketing,200,146,12,LocalDate.now(),WorkRecord.Status.RELEASED,"PROMPT-V6"));

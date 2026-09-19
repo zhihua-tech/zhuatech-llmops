@@ -6,9 +6,15 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 class CanaryReleaseServiceTest {
     private final CanaryReleaseService service = new CanaryReleaseService();
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void stableBucketAndFullCanarySelectCandidate() {
         var request = request(100, 200, 0.1, 300, 0, true, true);
@@ -20,6 +26,9 @@ class CanaryReleaseServiceTest {
         assertEquals("model-v1", service.evaluate(request(0, 200, 0.1, 300, 0, true, true)).selectedVersion());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void insufficientSamplesHoldOnBaseline() {
         var result = service.evaluate(request(50, 10, 0.1, 300, 0, true, true));
@@ -27,6 +36,9 @@ class CanaryReleaseServiceTest {
         assertEquals("model-v1", result.selectedVersion());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void safetyOrSloBreachTriggersRollback() {
         assertEquals(CanaryReleaseService.Decision.ROLLBACK,
@@ -37,6 +49,9 @@ class CanaryReleaseServiceTest {
                 service.evaluate(request(50, 200, 0.1, 1000, 0, true, true)).decision());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void missingRecoveryBlocksAndInvalidVersionIsRejected() {
         assertEquals(CanaryReleaseService.Decision.BLOCKED,
@@ -49,6 +64,9 @@ class CanaryReleaseServiceTest {
                 input.maxP95LatencyMs(), input.criticalSafetyEvents(), true, true)));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private CanaryReleaseService.Request request(int percent, long samples, double error, long latency,
                                                   int safetyEvents, boolean rollback, boolean fallback) {
         return new CanaryReleaseService.Request("tenant-a", "user-1", "release-1", "model-v1", "model-v2",

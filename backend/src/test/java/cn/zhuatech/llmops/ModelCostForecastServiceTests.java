@@ -8,9 +8,15 @@ import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 class ModelCostForecastServiceTests {
     private final ModelCostForecastService service = new ModelCostForecastService();
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void warnsWhenForecastApproachesBudget() {
         var result = service.forecast(new ModelCostForecastService.Request(
@@ -22,6 +28,9 @@ class ModelCostForecastServiceTests {
         assertEquals("WARNING", result.status());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void blocksExpansionWhenForecastExceedsBudget() {
         var result = service.forecast(new ModelCostForecastService.Request(

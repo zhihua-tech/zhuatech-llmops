@@ -13,7 +13,11 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/** 汇总质量、安全、性能、成本和人工审批结果，形成可审计的模型发布门禁。 */
+/**
+ * 汇总质量、安全、性能、成本和人工审批结果，形成可审计的模型发布门禁。
+ *
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class ReleaseGateService {
     private static final double MIN_QUALITY = 85.0;
@@ -21,6 +25,9 @@ public class ReleaseGateService {
     private static final int MAX_P95_LATENCY_MS = 2500;
     private static final double MAX_COST_PER_1K_TOKENS = 0.08;
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public GateResult evaluate(GateRequest request) {
         List<String> failedGates = new ArrayList<>();
         if (request.qualityScore() < MIN_QUALITY) failedGates.add("QUALITY");
@@ -38,6 +45,9 @@ public class ReleaseGateService {
         return new GateResult(passed, passed ? "RELEASE" : "HOLD", List.copyOf(failedGates), Map.copyOf(thresholds), passed ? "允许进入灰度发布" : "修复失败门禁后重新评测");
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record GateRequest(
         @NotBlank(message = "请输入模型版本") String modelVersion,
         @DecimalMin(value = "0.0") @DecimalMax(value = "100.0") double qualityScore,
@@ -47,6 +57,9 @@ public class ReleaseGateService {
         boolean approvalPassed
     ) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record GateResult(
         boolean passed,
         String decision,

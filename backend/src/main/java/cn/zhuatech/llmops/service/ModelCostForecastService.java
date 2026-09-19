@@ -12,10 +12,16 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class ModelCostForecastService {
     private static final BigDecimal ONE_MILLION = new BigDecimal("1000000");
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result forecast(Request request) {
         BigDecimal requests = BigDecimal.valueOf(request.monthlyRequests());
         BigDecimal cacheFactor = BigDecimal.ONE.subtract(request.cacheHitRate().multiply(new BigDecimal("0.8")));
@@ -39,6 +45,9 @@ public class ModelCostForecastService {
         return new Result(request.applicationCode(), monthlyCost, budgetUsage, status, actions);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String applicationCode, @Min(0) long monthlyRequests,
                           @Min(0) int averageInputTokens, @Min(0) int averageOutputTokens,
                           @DecimalMin("0") BigDecimal inputPricePerMillion,
@@ -46,6 +55,9 @@ public class ModelCostForecastService {
                           @DecimalMin("0") @DecimalMax("1") BigDecimal cacheHitRate,
                           @DecimalMin("0.01") BigDecimal monthlyBudget) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String applicationCode, BigDecimal forecastMonthlyCost,
                          BigDecimal budgetUsageRate, String status, List<String> actions) {}
 }

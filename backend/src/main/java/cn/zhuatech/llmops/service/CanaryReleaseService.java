@@ -15,9 +15,16 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 根据灰度遥测执行发布门禁，并为同一租户、用户和版本生成稳定路由。 */
+/**
+ * 根据灰度遥测执行发布门禁，并为同一租户、用户和版本生成稳定路由。
+ *
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class CanaryReleaseService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result evaluate(Request request) {
         if (request.baselineVersion().equals(request.candidateVersion())) {
             throw new IllegalArgumentException("基线与候选模型版本不能相同");
@@ -53,6 +60,9 @@ public class CanaryReleaseService {
         return new Result(Decision.ACTIVE, version, bucket, List.of("灰度指标通过，按稳定分桶路由"));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private int bucket(String tenantId, String userId, String releaseId) {
         try {
             byte[] digest = MessageDigest.getInstance("SHA-256")
@@ -63,6 +73,9 @@ public class CanaryReleaseService {
         }
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String tenantId, @NotBlank String userId, @NotBlank String releaseId,
                           @NotBlank String baselineVersion, @NotBlank String candidateVersion,
                           @Min(0) int canaryPercent, @Min(0) long observedRequests,
@@ -73,7 +86,13 @@ public class CanaryReleaseService {
                           @Min(0) int criticalSafetyEvents, boolean rollbackReady,
                           boolean fallbackReady) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(Decision decision, String selectedVersion, int routingBucket, List<String> reasons) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public enum Decision { ACTIVE, HOLD, BLOCKED, ROLLBACK }
 }
