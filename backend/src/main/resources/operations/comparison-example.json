@@ -1,0 +1,6 @@
+{
+  "patch": {
+    "windowErrors": "4"
+  },
+  "description": "短窗口错误数改为4"
+}
