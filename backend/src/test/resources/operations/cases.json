@@ -1,0 +1,68 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "HOLD",
+      "allowedErrors": "#100",
+      "remainingErrors": "#50",
+      "shortBurnRate": "#5"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "windowErrors": "4"
+    },
+    "expected": {
+      "decision": "PASS",
+      "shortBurnRate": "#4"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "periodErrors": "101"
+    },
+    "expected": {
+      "decision": "HOLD",
+      "remainingErrors": "#-1"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "windowRequests": "0",
+      "windowErrors": "0"
+    },
+    "expected": {
+      "decision": "REVIEW",
+      "shortBurnRate": "N/A"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "windowRequests": "0",
+      "windowErrors": "1"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "targetSuccess": "100"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "periodErrors": "100",
+      "windowErrors": "0"
+    },
+    "expected": {
+      "decision": "PASS"
+    },
+    "error": false
+  }
+]
